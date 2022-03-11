@@ -10,6 +10,22 @@ class LinkedList:
     def insert_at_begining(self,data):
         node=Node(data,self.head)
         self.head=node
+
+    def insert_at_end(self,data):
+        # handles the case where linked list is empty
+        
+        if self.head == None:
+            self.head=Node(data,None)
+            return
+        # iterator variable 
+        itr=self.head
+        # run while itr.next is not None
+        while itr.next:
+            itr=itr.next
+        # if it finds itr.next as None this means we have reached the end of the linked list 
+        # add data here
+        itr.next=Node(data,None)        
+
     def print(self):
         if self.head == None:
             print('Linked list is empty')   
@@ -52,4 +68,5 @@ ll = LinkedList()
 # ll.print()
 ll.insert_at_begining(78)
 ll.insert_at_begining(38)
+ll.insert_at_end(48)
 ll.print()
