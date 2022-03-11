@@ -9,6 +9,7 @@ class LinkedList:
 
     def insert_at_begining(self,data):
         node=Node(data,self.head)
+        
         self.head=node
 
     def insert_at_end(self,data):
@@ -43,7 +44,33 @@ class LinkedList:
         while itr:
             itr=itr.next
             count+=1
-        return count           
+        return count
+    def insert_values(self,list_data):
+       
+        for data in list_data:
+            self.insert_at_end(data)
+    def del_and_insert(self,data_list):
+        self.head=None
+        for data in data_list:
+            self.insert_at_begining(data)
+
+    def remove_at(self,index):
+        if index<0 or index>self.get_len():
+            raise Exception('Invalid index')
+        if index==0:
+            self.head=self.head.next 
+        count=0    
+        itr=self.head
+        while itr:
+            if count == index-1:
+                itr.next=itr.next.next
+                break
+            itr=itr.next
+            count+=1
+
+
+
+
 
 
 
@@ -76,7 +103,12 @@ ll = LinkedList()
 # ll.print()
 ll.insert_at_begining(78)
 ll.insert_at_begining(38)
+ll.insert_at_end(28)
 ll.insert_at_end(48)
-ll.insert_at_end(48)
+ll.insert_values(['john','alec','nora'])
+ll.print()
+# ll.remove_at(1)
+ll.print()
+ll.remove_at(6)
 ll.print()
 print(ll.get_len())
