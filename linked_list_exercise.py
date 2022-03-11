@@ -67,6 +67,23 @@ class LinkedList:
                 break
             itr=itr.next
             count+=1
+    def insert_at(self,index,data):
+        if index<0 or index>self.get_len():
+            raise Exception('Invalid index')  
+
+        if index==0:
+            self.insert_at_begining(data)
+
+        itr=self.head
+        count=0
+        while itr:
+            if index==index-1:
+                node=Node(data,itr.next)
+                itr.next=node
+                break
+            itr=itr.next
+            count +=1       
+            
 
 
 
@@ -77,14 +94,20 @@ class LinkedList:
 
 
 
-def insert_after_value(self, data_after, data_to_insert):
-    # Search for first occurance of data_after value in linked list
-    # Now insert data_to_insert after data_after node
-    pass
 
-def remove_by_value(self, data):
-    # Remove first node that contains data
-    pass
+    def insert_after_value(self, data_after, data_to_insert):
+        # Search for first occurance of data_after value in linked list
+        # Now insert data_to_insert after data_after node
+        if self.head==None:
+            return
+        if self.head.data==data_after:
+            self.head.next=Node(data_to_insert,self.head.next)
+            return   
+        
+
+    def remove_by_value(self, data):
+        # Remove first node that contains data
+        pass
 
 # make the following calls
 ll = LinkedList()
@@ -110,5 +133,6 @@ ll.print()
 # ll.remove_at(1)
 ll.print()
 ll.remove_at(6)
+ll.insert_at(3,9)
 ll.print()
 print(ll.get_len())
