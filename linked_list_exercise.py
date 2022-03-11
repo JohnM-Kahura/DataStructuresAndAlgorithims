@@ -35,7 +35,15 @@ class LinkedList:
         while itr:
             llstr += str(itr.data) +'----->'
             itr=itr.next
-        print(llstr)    
+        print(llstr) 
+
+    def get_len(self):
+        count=0
+        itr=self.head
+        while itr:
+            itr=itr.next
+            count+=1
+        return count           
 
 
 
@@ -69,4 +77,6 @@ ll = LinkedList()
 ll.insert_at_begining(78)
 ll.insert_at_begining(38)
 ll.insert_at_end(48)
+ll.insert_at_end(48)
 ll.print()
+print(ll.get_len())
