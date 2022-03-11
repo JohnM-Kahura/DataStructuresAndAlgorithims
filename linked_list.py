@@ -49,7 +49,7 @@ class LinkedList:
                 break
             itr=itr.next
             count+=1        
-    def inser_at(self,index,data):
+    def insert_at(self,index,data):
         if index<0 or index>self.get_length():
             raise Exception("Invalid index")
         if index ==0:
