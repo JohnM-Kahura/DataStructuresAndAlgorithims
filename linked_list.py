@@ -23,6 +23,10 @@ class LinkedList:
         self.head=None
         for data in data_list:
             self.insert_at_begining(data)
+    def del_and_insert(self,data_list):
+        self.head=None
+        for   data in data_list:
+            self.insert_at_begining(data)     
     def get_length(self):
         count=0
         itr=self.head
@@ -40,7 +44,7 @@ class LinkedList:
         count =0
         itr=self.head
         while itr:
-            if count == index -1:
+            if count == index -1:   
                 itr.next=itr.next.next
                 break
             itr=itr.next
@@ -84,7 +88,7 @@ if __name__=='__main__':
     ll.insert_values(["john",'kev','gina'])
     ll.print()  
     ll.remove_at(1)
-    
+    ll.del_and_insert([1,2,3,5,6,7,8,9])
     print(ll.get_length())
     ll.print() 
 
