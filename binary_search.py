@@ -4,6 +4,7 @@ end=len(arr)-1
 target=9
 
 def binarySearch(arr,start,end,target):
+    # write an exit statement here
     midIndex=start+end /2
     if target==arr[midIndex]: return True
     if arr[midIndex]>target: return binarySearch(arr,start,midIndex-1,target)
